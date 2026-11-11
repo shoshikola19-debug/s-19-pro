@@ -1,0 +1,17 @@
+name: Rename s-19-pro.html to index.html
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rename:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rename s-19-pro.html to index.html
+        run: |
+          git config user.name "shoshikola19-debug"
+          git config user.email "shoshikola19-debug@users.noreply.github.com"
+          git mv s-19-pro.html index.html
+          git commit -m "Rename s-19-pro.html to index.html"
+          git push
